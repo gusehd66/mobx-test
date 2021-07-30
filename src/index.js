@@ -3,10 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'mobx-react';
+import RootStore from './stores/RootStore';
+
+// const isLogin = observable(true)
+
+// const person = observable({
+//   name: 'Dongit',
+//   age: 25
+// })
+
+const rootStore = new RootStore()
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider {...rootStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
